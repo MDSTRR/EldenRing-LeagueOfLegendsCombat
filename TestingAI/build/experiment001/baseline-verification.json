@@ -1,0 +1,17 @@
+{
+  "SHA256": "DE1DED63C3DB3C8555D91C22B976C37E94B791CC1DC7DCD742A6573B365D22B1",
+  "Passed": true,
+  "MetadataFields": [
+    "Version",
+    "Format",
+    "BigEndian",
+    "BitBigEndian",
+    "Unicode",
+    "Extended",
+    "Unk04",
+    "Unk05",
+    "Compression"
+  ],
+  "FileSize": 5168,
+  "EntryCount": 2
+}

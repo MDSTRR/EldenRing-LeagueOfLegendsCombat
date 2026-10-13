@@ -1,0 +1,32 @@
+[
+  {
+    "Path": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\extracted\\431030_battle.luabnd.dcx",
+    "Size": 5184,
+    "SHA256": "E17D7A650381DFED962EA102670E3B6C1E44BAE93E953041F75697A4B57028B3",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\extracted\\431030_battle-luabnd-dcx\\431030_battle.lua",
+    "Size": 19737,
+    "SHA256": "B12260E8DDFA94A6BBAD117AAB8A5B965644BC705AFC49AC04E67443F31C9C55",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\extracted\\431030_battle-luabnd-dcx\\431030_battle.luagnl",
+    "Size": 1504,
+    "SHA256": "2A00F44377EB2DE66364FD08FE53E7048ED6F5BC9C9D4C59A5EEC2B8142DD8CC",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\extracted\\431030_battle-luabnd-dcx\\_witchy-bnd4.xml",
+    "Size": 824,
+    "SHA256": "319BB7058E38974F0262FEF77B019EB1BDE96763AA19FECFCC459937D0DD676F",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\decompiled\\431030_battle.lua",
+    "Size": 40242,
+    "SHA256": "BB170E62F3D24AEFC5CC1B900BD05EB30B9433C2265C7C0404457EFC34A072A4",
+    "Unchanged": true
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "Prepared": true,
+  "ArchiveRepacked": false,
+  "InGameTested": false,
+  "Source": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\build\\experiment002\\source\\431030_battle.lua",
+  "SourceSHA256": "666D2258A50707E8697737DDA9B1B6B8413A5A7AC3106B9A5699E5CE37F80A89",
+  "Bytecode": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\build\\experiment002\\approach-only\\431030_battle-luabnd-dcx\\431030_battle.lua",
+  "BytecodeSHA256": "5DDE5015307C7844D98B2E5C27F84665A24B969221F36A82BDE41188E39AB660",
+  "BytecodeBytes": 46777,
+  "Header": "1B-4C-75-61-50-01-04-08-04-06-08-09-09-08-B6-09-93-68-E7-F5-7D-41",
+  "FunctionCount": 27,
+  "ChangedExecutableFunctionIndices": [
+    2,
+    24
+  ],
+  "UnchangedExecutableFunctions": 25,
+  "ReferencesUnchanged": true,
+  "ReferenceHashes": [
+    {
+      "Algorithm": "SHA256",
+      "Hash": "BB170E62F3D24AEFC5CC1B900BD05EB30B9433C2265C7C0404457EFC34A072A4",
+      "Path": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\decompiled\\431030_battle.lua"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "B12260E8DDFA94A6BBAD117AAB8A5B965644BC705AFC49AC04E67443F31C9C55",
+      "Path": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\extracted\\431030_battle-luabnd-dcx\\431030_battle.lua"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "2A00F44377EB2DE66364FD08FE53E7048ED6F5BC9C9D4C59A5EEC2B8142DD8CC",
+      "Path": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\extracted\\431030_battle-luabnd-dcx\\431030_battle.luagnl"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "319BB7058E38974F0262FEF77B019EB1BDE96763AA19FECFCC459937D0DD676F",
+      "Path": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\extracted\\431030_battle-luabnd-dcx\\_witchy-bnd4.xml"
+    },
+    {
+      "Algorithm": "SHA256",
+      "Hash": "E17D7A650381DFED962EA102670E3B6C1E44BAE93E953041F75697A4B57028B3",
+      "Path": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\extracted\\431030_battle.luabnd.dcx"
+    }
+  ],
+  "LUAGNLMatchesOriginal": true,
+  "ManifestMatchesOriginal": true
+}

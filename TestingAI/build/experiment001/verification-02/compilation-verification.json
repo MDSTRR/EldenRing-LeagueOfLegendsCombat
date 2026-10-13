@@ -1,0 +1,10 @@
+{
+  "Passed": true,
+  "SourceCorrections": 0,
+  "Bytes": 79749,
+  "SHA256": "68B5E0399D7994EAE9A9B5D9E89342EC338137FE05103E147A081486520EF829",
+  "OriginalHeaderMatch": true,
+  "MatchesPriorValidatedCompilation": true,
+  "StructuralComparisonReport": "TestingAI/build/experiment001/compiled-source/function-comparison.json",
+  "RuntimeEquivalenceVerified": false
+}

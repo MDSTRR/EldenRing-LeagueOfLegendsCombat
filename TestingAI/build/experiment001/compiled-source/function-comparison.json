@@ -1,0 +1,272 @@
+[
+  {
+    "FunctionID": 0,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 76,
+    "RebuiltInstructions": 76,
+    "OriginalConstants": 31,
+    "RebuiltConstants": 31
+  },
+  {
+    "FunctionID": 1,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 25,
+    "RebuiltInstructions": 25,
+    "OriginalConstants": 8,
+    "RebuiltConstants": 8
+  },
+  {
+    "FunctionID": 2,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 906,
+    "RebuiltInstructions": 906,
+    "OriginalConstants": 92,
+    "RebuiltConstants": 92
+  },
+  {
+    "FunctionID": 3,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 88,
+    "RebuiltInstructions": 88,
+    "OriginalConstants": 22,
+    "RebuiltConstants": 22
+  },
+  {
+    "FunctionID": 4,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 100,
+    "RebuiltInstructions": 100,
+    "OriginalConstants": 27,
+    "RebuiltConstants": 27
+  },
+  {
+    "FunctionID": 5,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 102,
+    "RebuiltInstructions": 102,
+    "OriginalConstants": 28,
+    "RebuiltConstants": 28
+  },
+  {
+    "FunctionID": 6,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 44,
+    "RebuiltInstructions": 44,
+    "OriginalConstants": 22,
+    "RebuiltConstants": 22
+  },
+  {
+    "FunctionID": 7,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 41,
+    "RebuiltInstructions": 41,
+    "OriginalConstants": 14,
+    "RebuiltConstants": 14
+  },
+  {
+    "FunctionID": 8,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 49,
+    "RebuiltInstructions": 49,
+    "OriginalConstants": 19,
+    "RebuiltConstants": 19
+  },
+  {
+    "FunctionID": 9,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 50,
+    "RebuiltInstructions": 50,
+    "OriginalConstants": 18,
+    "RebuiltConstants": 18
+  },
+  {
+    "FunctionID": 10,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 28,
+    "RebuiltInstructions": 28,
+    "OriginalConstants": 13,
+    "RebuiltConstants": 13
+  },
+  {
+    "FunctionID": 11,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 29,
+    "RebuiltInstructions": 29,
+    "OriginalConstants": 12,
+    "RebuiltConstants": 12
+  },
+  {
+    "FunctionID": 12,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 27,
+    "RebuiltInstructions": 27,
+    "OriginalConstants": 11,
+    "RebuiltConstants": 11
+  },
+  {
+    "FunctionID": 13,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 39,
+    "RebuiltInstructions": 39,
+    "OriginalConstants": 13,
+    "RebuiltConstants": 13
+  },
+  {
+    "FunctionID": 14,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 39,
+    "RebuiltInstructions": 39,
+    "OriginalConstants": 13,
+    "RebuiltConstants": 13
+  },
+  {
+    "FunctionID": 15,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 72,
+    "RebuiltInstructions": 72,
+    "OriginalConstants": 20,
+    "RebuiltConstants": 20
+  },
+  {
+    "FunctionID": 16,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 39,
+    "RebuiltInstructions": 39,
+    "OriginalConstants": 13,
+    "RebuiltConstants": 13
+  },
+  {
+    "FunctionID": 17,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 48,
+    "RebuiltInstructions": 48,
+    "OriginalConstants": 18,
+    "RebuiltConstants": 18
+  },
+  {
+    "FunctionID": 18,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 25,
+    "RebuiltInstructions": 25,
+    "OriginalConstants": 10,
+    "RebuiltConstants": 10
+  },
+  {
+    "FunctionID": 19,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 84,
+    "RebuiltInstructions": 84,
+    "OriginalConstants": 19,
+    "RebuiltConstants": 19
+  },
+  {
+    "FunctionID": 20,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 63,
+    "RebuiltInstructions": 63,
+    "OriginalConstants": 18,
+    "RebuiltConstants": 18
+  },
+  {
+    "FunctionID": 21,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 5,
+    "RebuiltInstructions": 5,
+    "OriginalConstants": 3,
+    "RebuiltConstants": 3
+  },
+  {
+    "FunctionID": 22,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 7,
+    "RebuiltInstructions": 7,
+    "OriginalConstants": 1,
+    "RebuiltConstants": 1
+  },
+  {
+    "FunctionID": 23,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 1,
+    "RebuiltInstructions": 1,
+    "OriginalConstants": 0,
+    "RebuiltConstants": 0
+  },
+  {
+    "FunctionID": 24,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 314,
+    "RebuiltInstructions": 314,
+    "OriginalConstants": 58,
+    "RebuiltConstants": 58
+  },
+  {
+    "FunctionID": 25,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 1,
+    "RebuiltInstructions": 1,
+    "OriginalConstants": 0,
+    "RebuiltConstants": 0
+  },
+  {
+    "FunctionID": 26,
+    "InstructionMatch": true,
+    "ConstantsMatch": true,
+    "ShapeMatch": true,
+    "OriginalInstructions": 7,
+    "RebuiltInstructions": 7,
+    "OriginalConstants": 1,
+    "RebuiltConstants": 1
+  }
+]

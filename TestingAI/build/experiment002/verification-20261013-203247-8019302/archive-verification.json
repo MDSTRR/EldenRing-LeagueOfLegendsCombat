@@ -1,0 +1,78 @@
+{
+  "Passed": false,
+  "Archive": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\build\\experiment001\\unchanged-bytecode\\431030_battle.luabnd.dcx",
+  "ArchiveBytes": 5168,
+  "ArchiveSHA256": "DE1DED63C3DB3C8555D91C22B976C37E94B791CC1DC7DCD742A6573B365D22B1",
+  "ExtractionDirectory": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\build\\experiment002\\verification-20261013-203247-8019302",
+  "Entries": [
+    {
+      "ID": 1000,
+      "Name": "N:\\GR\\data\\INTERROOT_win64\\script\\ai\\out\\each\\431030_battle\\431030_battle.lua",
+      "Flags": "Flag1",
+      "CompressionType": "Zlib",
+      "Bytes": 19737,
+      "SHA256": "B12260E8DDFA94A6BBAD117AAB8A5B965644BC705AFC49AC04E67443F31C9C55",
+      "PayloadMatchesExpected": false,
+      "MetadataMatchesBaseline": true
+    },
+    {
+      "ID": 1000000,
+      "Name": "N:\\GR\\data\\INTERROOT_win64\\script\\ai\\out\\each\\431030_battle\\431030_battle.luagnl",
+      "Flags": "Flag1",
+      "CompressionType": "Zlib",
+      "Bytes": 1504,
+      "SHA256": "2A00F44377EB2DE66364FD08FE53E7048ED6F5BC9C9D4C59A5EEC2B8142DD8CC",
+      "PayloadMatchesExpected": true,
+      "MetadataMatchesBaseline": true
+    }
+  ],
+  "Metadata": [
+    {
+      "Field": "Version",
+      "Value": "07D7R6",
+      "MatchesBaseline": true
+    },
+    {
+      "Field": "Format",
+      "Value": "IDs, Names1, Names2, Compression",
+      "MatchesBaseline": true
+    },
+    {
+      "Field": "BigEndian",
+      "Value": "False",
+      "MatchesBaseline": true
+    },
+    {
+      "Field": "BitBigEndian",
+      "Value": "False",
+      "MatchesBaseline": true
+    },
+    {
+      "Field": "Unicode",
+      "Value": "True",
+      "MatchesBaseline": true
+    },
+    {
+      "Field": "Extended",
+      "Value": "4",
+      "MatchesBaseline": true
+    },
+    {
+      "Field": "Unk04",
+      "Value": "False",
+      "MatchesBaseline": true
+    },
+    {
+      "Field": "Unk05",
+      "Value": "False",
+      "MatchesBaseline": true
+    },
+    {
+      "Field": "Compression",
+      "Value": "DCX_KRAK",
+      "MatchesBaseline": true
+    }
+  ],
+  "ReferencesUnchanged": true,
+  "InGameTested": false
+}

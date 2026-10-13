@@ -1,0 +1,83 @@
+{
+  "BaselineArchive": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\build\\experiment001\\unchanged-bytecode\\431030_battle.luabnd.dcx",
+  "BaselineSize": 5168,
+  "BaselineSHA256": "DE1DED63C3DB3C8555D91C22B976C37E94B791CC1DC7DCD742A6573B365D22B1",
+  "CompiledArchiveExists": false,
+  "Entries": [
+    {
+      "ID": 1000,
+      "Name": "N:\\GR\\data\\INTERROOT_win64\\script\\ai\\out\\each\\431030_battle\\431030_battle.lua",
+      "Flags": "Flag1",
+      "Size": 19737,
+      "SHA256": "B12260E8DDFA94A6BBAD117AAB8A5B965644BC705AFC49AC04E67443F31C9C55",
+      "MatchesOriginal": true,
+      "ExtractedPath": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\build\\experiment001\\verification-02\\431030_battle.lua"
+    },
+    {
+      "ID": 1000000,
+      "Name": "N:\\GR\\data\\INTERROOT_win64\\script\\ai\\out\\each\\431030_battle\\431030_battle.luagnl",
+      "Flags": "Flag1",
+      "Size": 1504,
+      "SHA256": "2A00F44377EB2DE66364FD08FE53E7048ED6F5BC9C9D4C59A5EEC2B8142DD8CC",
+      "MatchesOriginal": true,
+      "ExtractedPath": "C:\\Users\\creep\\Desktop\\Projects\\Elden Ring - LoL\\EldenRing-LeagueOfLegendsCombat\\TestingAI\\build\\experiment001\\verification-02\\431030_battle.luagnl"
+    }
+  ],
+  "Metadata": [
+    {
+      "Field": "Version",
+      "Original": "07D7R6",
+      "Rebuilt": "07D7R6",
+      "Match": true
+    },
+    {
+      "Field": "Format",
+      "Original": "IDs, Names1, Names2, Compression",
+      "Rebuilt": "IDs, Names1, Names2, Compression",
+      "Match": true
+    },
+    {
+      "Field": "BigEndian",
+      "Original": "False",
+      "Rebuilt": "False",
+      "Match": true
+    },
+    {
+      "Field": "BitBigEndian",
+      "Original": "False",
+      "Rebuilt": "False",
+      "Match": true
+    },
+    {
+      "Field": "Unicode",
+      "Original": "True",
+      "Rebuilt": "True",
+      "Match": true
+    },
+    {
+      "Field": "Extended",
+      "Original": "4",
+      "Rebuilt": "4",
+      "Match": true
+    },
+    {
+      "Field": "Unk04",
+      "Original": "False",
+      "Rebuilt": "False",
+      "Match": true
+    },
+    {
+      "Field": "Unk05",
+      "Original": "False",
+      "Rebuilt": "False",
+      "Match": true
+    },
+    {
+      "Field": "Compression",
+      "Original": "DCX_KRAK",
+      "Rebuilt": "DCX_KRAK",
+      "Match": true
+    }
+  ],
+  "Passed": true
+}
