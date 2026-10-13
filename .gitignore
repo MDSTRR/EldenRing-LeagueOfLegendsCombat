@@ -1,2 +1,50 @@
 /extracted/
 /tools/
+
+# Third-party tools and reference game resources in the mod workspace
+/TestingAI/tools/
+/TestingAI/extracted/
+/TestingAI/decompiled/
+/decompiled/
+/TestingAI/backups/
+/backups/
+
+# Packed/extracted game data (retain original Lua, XML, and other mod source)
+*.dcx
+*.bhd
+*.bdt
+*.bnd
+*.luabnd
+*.luagnl
+*.luainfo
+*.msb
+*.emevd
+*.tpf
+regulation.bin
+regulation.bin.prev
+
+# Build outputs and caches
+bin/
+obj/
+build/
+dist/
+.vs/
+__pycache__/
+*.pyc
+*.pdb
+*.obj
+*.dll
+*.exe
+*.lib
+
+# Temporary files and backups
+*.tmp
+*.temp
+*.log
+*.bak
+*.prev
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

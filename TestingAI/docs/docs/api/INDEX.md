@@ -28,7 +28,7 @@ Paths above are relative to `TestingAI/docs/`, the project's documentation root.
 - **Hypothesis/inference:** plausible interpretation requiring further evidence.
 - **Locally verified:** reproduced in this project with build, procedure and outcome recorded. No current entries have this status.
 
-Last updated: 2026-10-13. Sources do not specify a tested Elden Ring build. Local game files were unavailable during the research. Parameter disagreements and older-game examples are preserved explicitly.
+Last updated: 2026-10-13, Handoff004. Battle Lua text and manifest are now available and inspected. Sources do not specify a tested Elden Ring build; no behavior is verified in-game. Parameter disagreements and older-game examples remain explicit. “Observed locally” identifies supplied decompiled text evidence, distinct from runtime verification.
 
 ## AI goals
 
@@ -36,6 +36,8 @@ Last updated: 2026-10-13. Sources do not specify a tested Elden Ring build. Loca
 |---|---|---|
 | GOAL_COMMON_MoveToSomewhere | [Movement goals](ai-goals.md#goal_common_movetosomewhere) | Documented target-based pathing; no local test |
 | GOAL_COMMON_MoveFollowPathSpecifyPos | [Movement goals](ai-goals.md#goal_common_movefollowpathspecifypos) | Documented coordinate slots; behavior unresolved |
+| GOAL_COMMON_ApproachTarget, GOAL_COMMON_SidewayMove, GOAL_COMMON_LeaveTarget, GOAL_COMMON_Turn | [Observed target goals](ai-goals.md#target-relative-goals-observed-in-431030) | Exact call sites in431030; runtime behavior untested |
+| GOAL_COMMON_ComboTunable_SuccessAngle180, GOAL_COMMON_ComboRepeat, GOAL_COMMON_ComboAttackTunableSpin, GOAL_COMMON_AttackTunableSpin, GOAL_COMMON_ComboRepeat_SuccessAngle180 | [Observed attack goals](ai-goals.md#attack-goals-observed-in-431030) | Catalog only; no combat implementation |
 
 ## Related AI functions
 
@@ -44,6 +46,18 @@ Last updated: 2026-10-13. Sources do not specify a tested Elden Ring build. Loca
 | SetEventMoveTarget | [Point setup](ai-functions.md#seteventmovetarget) | Documented assignment of POINT_EVENT to a region |
 | SetAIFixedMoveTarget | [Point setup](ai-functions.md#setaifixedmovetarget) | Documented assignment of a target-relative fixed point |
 | FollowPath | [Pathing](ai-functions.md#followpath) | Documented pathing operation used by MoveToSomewhere |
+| AddSubGoal | [Goal queue](ai-functions.md#addsubgoal) | Documented ER declaration; no local test |
+| RegisterTableGoal, REGISTER_GOAL_NO_SUB_GOAL, REGIST_FUNC, Common_Battle_Activate, Approach_Act_Flex, ClearSubGoal, SetTargetRange | [Dispatch helpers](ai-functions.md#battle-dispatch-and-registration-helpers) | Observed calls and external definitions distinguished |
+
+## AI resource and configuration references
+
+| Exact name | Reference | Current evidence |
+|---|---|---|
+| NpcThinkParam.logicId | [Logic selection](ai-resources.md#npcthinkparamlogicid) | Locally inspected ER schema; selected row value user-reported |
+| NpcThinkParam.battleGoalID | [Battle selection](ai-resources.md#npcthinkparambattlegoalid) | User-reported431030; binder/text independently inspected |
+| common10000_Logic, common10000_Interupt | [Published example](ai-resources.md#common10000_logic--common10000_interupt) | Public ER-oriented Lua source; installed registration unverified |
+
+[Resource organization](ai-resources.md) and [manual extraction instructions](../AI_EXTRACTION.md) cover the archive trace. The workspace tool dictionary is reference metadata, not local game-behavior verification.
 
 ## Constants
 
@@ -56,4 +70,4 @@ Last updated: 2026-10-13. Sources do not specify a tested Elden Ring build. Loca
 
 ## Investigation and experiments
 
-[RESEARCH.md](../../agent/RESEARCH.md) holds source assessment, disagreements and proposed experiments. [STATE.md](../../agent/STATE.md) holds the current project state. Recommended first experiment remains fixed-region movement with MoveToSomewhere; nothing has been implemented or tested.
+[RESEARCH.md](../../agent/RESEARCH.md) holds investigation history; [STATE.md](../../agent/STATE.md) holds current status. [Godrick Soldier analysis](../analysis/GODRICK_SOLDIER_AI.md) refines the first experiment to a fixed region via observed ApproachTarget, with MoveToSomewhere as a comparison candidate. Nothing implemented or tested.

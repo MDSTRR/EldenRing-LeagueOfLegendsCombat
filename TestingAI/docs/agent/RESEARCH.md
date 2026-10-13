@@ -1,5 +1,7 @@
 # Elden Ring AI movement goals — research only
 
+Current analysis: [Handoff004 findings](../docs/analysis/GODRICK_SOLDIER_AI.md). Earlier download/missing-resource statements below preserve historical evidence and are superseded where noted at the end.
+
 Researched: 2026-10-13. No game files available; game downloading. No gameplay changes or in-game tests performed. No movement architecture selected.
 
 ## Evidence and sources
@@ -98,3 +100,92 @@ Start with experiment A: fixed region plus MoveToSomewhere. Its pathing semantic
 ## 2026-10-13 — Reusable API library
 
 Created [docs/api/INDEX.md](../docs/api/INDEX.md) with the user's Technical Knowledge Management instructions. Promoted existing findings into [AI goals](../docs/api/ai-goals.md), [related AI functions](../docs/api/ai-functions.md) and [target constants](../docs/api/ai-targets.md). Checked for existing entries first; the prior `docs/ai-goals.md`, `docs/ai-targets.md` and `docs/lua-api.md` files were empty. No new engine behavior was verified. Missing usage examples, source disagreements, displayed-default limitations and current-build uncertainty remain explicit. This update organizes completed research; it does not implement either experiment.
+
+## Handoff 003 — Godrick Soldier resource trace
+
+2026-10-13. Research/preparation complete; actual archive trace awaits user resources. Read the handoff, authoritative instructions, index, state and relevant movement findings. No installation access, asset copying, extraction, gameplay changes or tests performed.
+
+### Selected instance
+
+User-confirmed in Smithbox 2.2.6: map `m18_00_00_00` (Stranded Graveyard), instance `c4311_9007`, model `c4311`, entity `18000257`, NpcParam and NpcThinkParam `43114006`, logicId `10000`, position `(-102.524, 2.849, 157.056)`. These are user-observed local findings, not independent Codex binary verification. Tutorial-boss identity remains **unknown**; the approved Soldier of Godrick prototype requirement is unchanged.
+
+### Evidence inspected
+
+**R1 — local schema:** `TestingAI/tools/Smithbox_2_2_6_2026_09_20_b/Assets/PARAM/ER/Defs/NpcThinkParam.xml:29` defines logicId; line 36 defines separate battleGoalID. English annotations at `Assets/PARAM/ER/Param Annotations/English/NPC_THINK_PARAM_ST.json:23` and `:28` describe logic script and battle goal IDs. [libER generated ER schema](https://dasaav-dsv.github.io/libER/d8/df3/NPC__THINK__PARAM__ST_8hpp_source.html) corroborates this. **Locally inspected tool metadata**, not row 43114006 contents.
+
+**R2 — local ER file dictionary:** `TestingAI/tools/Smithbox_2_2_6_2026_09_20_b/Assets/File Dictionaries/ER-File-Dictionary.json`:
+
+| Line | Exact path | Outer archive association |
+|---|---|---|
+| 40989 | /script/010000_logic.luabnd.dcx | data0 |
+| 44717 | /script/aicommon.luabnd.dcx | data0 |
+| 5605 | /event/m18_00_00_00.emevd.dcx | data0 |
+| 646357 | /map/mapstudio/m18_00_00_00.msb.dcx | data2 |
+
+Also lists `script/aicommon_dlc01.luabnd.dcx`, `script/aicommon_dlc02.luabnd.dcx` and `action/script/c4311.hks` under data0. Tool dictionary Validated=true is its author's status, not verification of the current installation. Physical BHD/BDT pair spelling/casing and current patch-layer precedence were not established through installation inspection. Avoid mixing ER and older-game dictionaries.
+
+**R3 — [ElaDiDu ER-focused tutorial](https://docs.google.com/document/d/e/2PACX-1vTbygMNnCuicYcs6u0ZVFsKV54YzNb4ZvlZiaTCBFVF5TqXWV7N6axiqR--fieMRMtV-ik1FsKuC7q6/pub):** describes Lua 5.0.2 AI, individual battle binders selected by Battle Goal ID, shared aicommon definitions and registration. Map-specific AI binder instructions concern older games; do not invent `m18_00_00_00.luabnd.dcx` for ER.
+
+**R4 — [public ER-oriented 010000_logic.lua](https://github.com/mihai1rus/EldenRingCommonAiFuncs/blob/main/010000_logic.lua):** defines common10000_Logic(ai) and common10000_Interupt(ai, goal), delegating to common setup with event-request branches. The repository includes refactoring/custom additions; not an authenticated dump of our build.
+
+**R5 — local tools:** WitchyBND `README.md` documents binder/DCX/LUAINFO/LUAGNL, file drag/drop and separate deferred decompilation. DSLuaDecompiler `README.md` distinguishes Lua AI and HKS character control; `DSLuaDecompiler/Program.cs:52–56` confirms file input and --output/-o. No built decompiler or Nuxe/UXM executable found in inspected workspace tool paths. [WitchyBND](https://github.com/ividyon/WitchyBND), [DSLuaDecompiler](https://github.com/katalash/DSLuaDecompiler).
+
+**R6 — [Nuxe readme](https://github.com/JKAnderson/Nuxe/blob/main/dist/Readme.txt) and [UI source](https://github.com/JKAnderson/Nuxe/blob/main/Nuxe/Views/MainWindow.xaml):** ER PC support and Advanced separate-output/regex controls enable manual archive extraction without executable patching. No installed-build compatibility tested.
+
+**R7 — [ER event investigation tutorial](https://soulsmodding.wikidot.com/tutorial:intro-to-elden-ring-emevd):** supports optional event/map inspection using DarkScript3 and map/param editors. **R8 — [ERAiAPI GoalFunc](https://eladidu.github.io/readable-ds-lua/d4/d58/class_goal_func.html):** supplies AddSubGoal declaration and queue behavior, now recorded in the API library. No new event instruction is documented without signature evidence.
+
+### Organization and incomplete chain
+
+Documented organization: outer game archives -> compressed LUABND binders -> script entries/metadata -> possibly compiled Lua requiring decompilation. Keep binder manifests, LUAINFO and LUAGNL entries. Model/animation/behavior resources and HavokScript action control are distinct from AI decision scripts. A .lua extension does not guarantee text.
+
+```text
+c4311_9007 in m18_00_00_00
+  -> NpcThinkParam 43114006               [user-confirmed]
+     -> logicId 10000                     [user-confirmed; schema documented]
+        -> script/010000_logic.luabnd.dcx [exact documented candidate]
+           -> common10000_Logic          [published example; local binding unknown]
+     -> battleGoalID UNKNOWN              [field documented; value missing]
+        -> corresponding battle binder   [convention documented; filename unknown]
+  + script/aicommon.luabnd.dcx            [shared dependencies]
+  -> active movement selection           [requires actual scripts/registration]
+```
+
+The logic can dispatch shared setup; battle scripts choose actions and queue goals. Common goal definitions can be Lua or engine-backed. Inspect registration, goal-name mappings and metadata before claiming runtime loading. Do not derive a battle filename from `c4311`, row 43114006 or logicId 10000. Shared logic edits could affect unrelated NPCs.
+
+### Required and conditional extraction resources
+
+Paths are relative to the Game directory after outer unpacking. Installation was not browsed. Nuxe handles the outer BHD/BDT layer; dictionary archive associations do not establish the current physical inventory by themselves.
+
+| Expected path / convention | Format and purpose | Tool | Priority / evidence |
+|---|---|---|---|
+| regulation.bin, or NpcThinkParam row 43114006 export | Parameter container/row; capture battleGoalID and provenance | Smithbox read-only; Witchy if container unpack needed | Essential row evidence; R1; unverified repository copy exists |
+| map/MapStudio/m18_00_00_00.msb.dcx | Compressed MSB map; instance/region references | Smithbox, Witchy optional | Essential before experiment; R2; workspace copy exists |
+| script/010000_logic.luabnd.dcx | Compressed logic script binder | Nuxe -> Witchy -> DSLuaDecompiler if compiled | Essential; R2/R4 |
+| script/aicommon.luabnd.dcx | Shared helpers, goal definitions/lookup dependencies | Same pipeline | Essential; R2/R3 |
+| script/<actual battleGoalID>_battle.luabnd.dcx | Selected battle binder | Same pipeline | Essential; R3 convention; exact filename UNKNOWN |
+| event/m18_00_00_00.emevd.dcx | Map activation/override and identity evidence | Nuxe; DarkScript3 | Optional now; required if unresolved activation; R2/R7 |
+| event/common_func.emevd.dcx | Referenced common events | Nuxe; DarkScript3 | Conditional on map references; R7 |
+| script/aicommon_dlc01.luabnd.dcx, script/aicommon_dlc02.luabnd.dcx | DLC shared dependencies | Nuxe/Witchy/decompiler | Conditional on actual references; R2 |
+| action/script/c4311.hks | Character action control | Nuxe; DSLuaDecompiler if needed | Optional fallback for action constraints; R2/R5 |
+
+No texture/CHRBND/ANIBND extraction is necessary for initial script tracing. Exact internal soldier script names remain to verify; inspect actual metadata instead of inventing internal paths.
+
+### Local preparation and next step
+
+`TestingAI/extracted/` exists and is empty; untouched/read-only to Codex. `TestingAI/map/MapStudio/m18_00_00_00.msb.dcx` exists (254348 bytes), as does `TestingAI/regulation.bin`; presence checked, contents/provenance not decoded. Root `/extracted/` ignore does not match nested `TestingAI/extracted/`; no tracked files listed there. Manual guide requires user correction before asset copying. No assets staged/committed or ignore edits made.
+
+Follow [AI_EXTRACTION.md](../docs/AI_EXTRACTION.md) for manual capture, separate-output unpacking, copied-binder extraction, decompilation and success checks. Provide battleGoalID/build/provenance, untouched logic/common/battle binders plus metadata and relevant readable outputs. Then perform a read-only trace of active scripts. Confirm tutorial-boss identity independently; report a mismatch rather than changing requirements.
+
+**Recommended experiment:** retain experiment A, one finite-lifetime MoveToSomewhere toward POINT_EVENT on reachable open ground, player elsewhere, baseline/test footage and repeated starting condition. Prerequisites: character identity, active script/registration, required arguments, region ID, installed build and offline mod-loading setup. Later use an isolated instance-specific override rather than a global common-logic edit. No destination ID, battle ID or insertion point invented. No experiment implemented. Stop awaiting resources or next authorization.
+
+## Handoff 004 — Decompiled battle analysis
+
+2026-10-13: fully read all1044 lines of `TestingAI/decompiled/431030_battle.lua`, binder manifest, listed project documents and prior research/extraction/API references. Detailed architecture, Mermaid flow, every movement/helper/attack call tuple and line references are in [GODRICK_SOLDIER_AI.md](../docs/analysis/GODRICK_SOLDIER_AI.md). No original/decompiled assets changed, unpacked, compiled or repacked; no installation access or in-game tests.
+
+User now reports battleGoalID431030 and completed tools/extraction/decompilation. Locally confirmed: supplied battle file, archive/manifest entries and symbolic registrations. Param-row mapping and tutorial-boss identity remain user-reported/unresolved. Logic10000 and aicommon archives exist, but no readable shared versions are available; they were not unpacked. Earlier empty-extraction/missing-battle-ID/tool-build assumptions are historical and superseded by this delivery, not proof of a verified complete toolchain.
+
+Observed: Activate sets relative weights and distinct REGIST_FUNC-bound callable table, then invokes shared selection with six arguments. Enemy-relative Approach/Sideway/Leave/Turn and approach-before-attack patterns are present. Interrupt clears/replaces queues. Unresolved: weight28 without binding; after-callback spelling mismatch; G/L global guard flags; third selection table; damage handler returnsfalse after changes. No fixes made. External helper source signatures/semantics are recorded separately from installed evidence in the API library.
+
+No occurrence of any of the seven requested navigation candidates in the battle file. External pathing/coordinate documentation remains plausible but untested; no arbitrary world-space destination, live destination refresh or obstacle-routing guarantee established. Precise missing evidence and navigation matrix are in the analysis.
+
+Recommendation refined: fixed region via documented SetEventMoveTarget/POINT_EVENT and **observed ApproachTarget**, adapting main Activate/Act13, rather than introducing MoveToSomewhere first. No implementation decision or gameplay success claimed. Region ID, shared update/registration and compatible bytecode compilation/repack/ModEngine loading need verification. Proposal compares target, region, MoveToSomewhere and coordinate approaches; includes controlled success/failure criteria and rollback. Next session limited to fixed-destination implementation/testing after user authorization and prerequisite checks.

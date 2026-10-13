@@ -5,6 +5,8 @@
 **Initial Character:** Soldier of Godrick  
 **Primary Objective:** League of Legends-style movement and combat through NPC control
 
+**2026-10-13 evidence update:** This document's architecture remains preliminary. The completed battle analysis at [GODRICK_SOLDIER_AI.md](../../docs/analysis/GODRICK_SOLDIER_AI.md) provides current local call-site evidence and refines the first test to fixed-region ApproachTarget. No controller architecture or gameplay behavior has been verified.
+
 ---
 
 ## 1. Research Objective

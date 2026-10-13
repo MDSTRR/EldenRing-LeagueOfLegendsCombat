@@ -1,4 +1,0 @@
-[submodule "SoulsFormats"]
-	path = SoulsFormats
-	url = https://github.com/JKAnderson/SoulsFormats
-	branch = er

@@ -34,4 +34,6 @@ Related setters: [SetEventMoveTarget](ai-functions.md#seteventmovetarget) and [S
 
 ## Usage and verification boundary
 
+Handoff004 update: `TestingAI/decompiled/431030_battle.lua:564` uses TARGET_ENE_0 as movement target and TARGET_SELF as facing reference; many other calls are cataloged in [analysis](../analysis/GODRICK_SOLDIER_AI.md). This upgrades these references to observed local call sites, not runtime verification. POINT_EVENT and POINT_AI_FIXED_POS do not occur in that battle file. Dynamic destination resolution remains unknown.
+
 The movement-goal reference contains the sourced usage example for TARGET_ENE_0, TARGET_SELF and AI_DIR_TYPE_CENTER. The setter reference contains the sourced POINT_EVENT setup example. No validated examples were found for all remaining constants; do not synthesize them into a claimed working invocation. Current knowledge does not establish a goal-specific target whitelist.

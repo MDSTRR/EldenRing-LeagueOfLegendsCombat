@@ -1,12 +1,12 @@
 # Current state
 
-Updated 2026-10-13.
+Updated 2026-10-13. Handoff004 analysis/documentation complete. No gameplay implementation/repack/test; M1 unachieved.
 
-- Research-only assignment completed for GOAL_COMMON_MoveToSomewhere and GOAL_COMMON_MoveFollowPathSpecifyPos. Exact documented slots, alternate typed declarations, target evidence, uncertainties, sources and two proposed minimal experiments are in `RESEARCH.md`.
-- Reusable API library created at `docs/api/INDEX.md` with the user's knowledge-management instructions and references for goals, related functions and constants. Check its index before future function research and read only relevant entries.
-- MoveToSomewhere has documented target-based pathing semantics. MoveFollowPathSpecifyPos has explicit x/y/z slots, but coordinate frame, route prerequisites and actual behavior remain unresolved.
-- Recommended first experiment: Soldier of Godrick walks toward one fixed map region via POINT_EVENT and MoveToSomewhere, using an isolated offline mod override after installation and further instructions. First inspect actual soldier resources and local argument/default handling.
-- Game is downloading; local game files are unavailable. Soldier identifiers/scripts and installed build are not verified. No gameplay modifications, controller code or in-game tests were made. M1 remains unachieved.
-- No movement architecture selected. User-controlled documents remain unchanged.
-- Active handoffs: none for this completed assignment. `tempHandoffs/handoff001.md` describes an earlier, broader AI-resource investigation; its resource-identification work is deferred pending installation, not completed here.
-- Stop and wait for further user instructions. Do not implement experiments or advance to dynamic input/combat work.
+- User confirmed Smithbox instance c4311_9007, model c4311, entity 18000257, map m18_00_00_00, NpcParam/NpcThinkParam 43114006, logicId 10000, position (-102.524, 2.849, 157.056). Tutorial-boss identity unknown; approved prototype character unchanged.
+- Handoff004 reports battleGoalID431030 and successful tool setup/extraction/decompilation. Fully read TestingAI/decompiled/431030_battle.lua (1044 lines); confirmed binder manifest and symbolic registration. Param-row mapping remains user-reported.
+- Script uses weighted enemy-relative approach/circling/retreat/turn and attacks; interruptions replace queues. No requested coordinate/pathing candidate occurs in this battle text. Shared logic/common archives now exist but no readable counterparts supplied; no unpacking performed.
+- Detailed catalog/line references: docs/analysis/GODRICK_SOLDIER_AI.md. Source anomalies documented, not repaired. Check docs/api/INDEX.md before future API research; read relevant entries only.
+- First experiment proposal refined to documented SetEventMoveTarget/POINT_EVENT plus observed ApproachTarget, adapting main Activate/Act13. Fixed region distinct from enemy; no arbitrary-coordinate or obstacle-navigation claim. Shared431030 override affects other users of that goal.
+- Prerequisites: reachable region ID, identity, shared registration/update evidence, game build, compatible bytecode compilation/unchanged round-trip, actual ModEngine config/root and offline loading. No new tool installation or Steam access authorized/performed.
+- Git cleanup completed: tools/extracted/decompiled assets, map DCX and regulation binaries excluded and untracked from parent index; local files retained. Nested DSLuaDecompiler/SoulsFormats repositories untouched. Documentation/source/config tracking retained; no commit/push. User-controlled files unchanged.
+- Active handoffs: none; handoff004 marked completed, earlier handoffs historical/deferred. Await instruction to implement/test only the first fixed-destination experiment; no input/camera/combat development.
