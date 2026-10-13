@@ -65,6 +65,8 @@ Both sources document coordinate slots. The wiki's NONE labels disagree with ERA
 
 ## Target-relative goals observed in 431030
 
+Experiment002 uses the existing ApproachTarget entry on a disposable copy: `goal:AddSubGoal(GOAL_COMMON_ApproachTarget,10,TARGET_ENE_0,3,TARGET_SELF,true,9910)`. This supplies the same slots as Act13, forcing its observed walk variant. Main queue clearing and interrupt isolation are described in the [experiment report](../../agent/experiments/EXPERIMENT_002_OBSERVABLE_OVERRIDE.md). Lua5.0 compilation/header/static function isolation verified; archive repack, approach behavior, exact distance/guard/facing and repeated activation unverified. No omitted goal parameters or defaults inferred.
+
 Added Handoff004. Sources: [ER parameter reference](https://soulsmodding.com/doku.php?id=er-refmat:ai-goals-and-params), [ERAiAPI](https://eladidu.github.io/readable-ds-lua/dd/dac/_goals_8hpp.html), and `TestingAI/decompiled/431030_battle.lua`. Observed call sites are locally inspected decompiled text, not verified runtime behavior. Full arguments/caller inventory: [analysis](../analysis/GODRICK_SOLDIER_AI.md#complete-movement-call-catalog). No installed build known; no omitted-argument defaults asserted here.
 
 Exact documented ordered goal slots, excluding enclosing goal ID/lifetime:

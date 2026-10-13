@@ -70,4 +70,10 @@ Last updated: 2026-10-13, Handoff004. Battle Lua text and manifest are now avail
 
 ## Investigation and experiments
 
+[Experiment001 Lua round-trip](../../agent/experiments/EXPERIMENT_001_LUA_ROUNDTRIP.md): unchanged-bytecode baseline verified; compilation/header/27-function structural checks passed. Compiled repack and in-game loading pending. Behavior preservation precedes movement implementation.
+
+Latest: compiled archive extraction/payload/metadata checks also passed; separate inactive override prepared. [Offline test plan](../../agent/experiments/EXPERIMENT_001_OFFLINE_TEST.md) covers next stage. In-game loading/compatibility still unverified.
+
 [RESEARCH.md](../../agent/RESEARCH.md) holds investigation history; [STATE.md](../../agent/STATE.md) holds current status. [Godrick Soldier analysis](../analysis/GODRICK_SOLDIER_AI.md) refines the first experiment to a fixed region via observed ApproachTarget, with MoveToSomewhere as a comparison candidate. Nothing implemented or tested.
+
+2026-10-13 current status supersedes earlier pending-compilation/repack and “nothing implemented” notes: Experiment001 static archive verification passed; user reports preliminary normal-behavior game test without definitive script-load evidence. [Experiment002 observable override](../../agent/experiments/EXPERIMENT_002_OBSERVABLE_OVERRIDE.md) prepares ApproachTarget plus ClearSubGoal and main interrupt isolation on disposable source. Compiled/header/static checks pass; interactive repack and in-game A/B/A pending. Existing entries reused; no new API invented. Fixed-region work deferred.

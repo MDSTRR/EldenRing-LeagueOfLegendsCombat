@@ -1,5 +1,7 @@
 # Godrick Soldier battle AI analysis
 
+Latest, Experiment002: [observable override report](../../agent/experiments/EXPERIMENT_002_OBSERVABLE_OVERRIDE.md). Experiment001 static archive/compiler checks passed; user reports preliminary normal-behavior game test, without definitive custom-script loading evidence. Disposable main Activate/Interrupt changes now compile; other25 executable functions remain identical. Interactive repack and same-NPC offline A/B/A pending. Earlier fixed-region proposal below is deferred; original source anomalies preserved.
+
 Handoff 004 completed 2026-10-13. Research only; no resources modified, compiled, repacked or deployed. Installed build and tutorial-boss identity remain unknown.
 
 ## Evidence and architecture

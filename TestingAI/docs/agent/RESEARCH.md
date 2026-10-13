@@ -1,5 +1,9 @@
 # Elden Ring AI movement goals — research only
 
+Latest Experiment001: compiled archive payload/metadata and27-function executable comparison passed. Debug/source metadata differs; runtime compatibility untested. Separate inactive compiled override prepared. See [current experiment report](experiments/EXPERIMENT_001_LUA_ROUNDTRIP.md). Historical pending-repack statements below are superseded.
+
+Experiment001 continuation: user interactive baseline repack succeeded; decoded payloads/metadata independently match. Untouched source compiled with existing Lua50Compiler; header and all27 functions' instructions/constants/executable shape match. Compiled-source archive and in-game loading still pending. See [round-trip report](experiments/EXPERIMENT_001_LUA_ROUNDTRIP.md). Earlier failed attempts/research-only statements are historical. No movement behavior verified.
+
 Current analysis: [Handoff004 findings](../docs/analysis/GODRICK_SOLDIER_AI.md). Earlier download/missing-resource statements below preserve historical evidence and are superseded where noted at the end.
 
 Researched: 2026-10-13. No game files available; game downloading. No gameplay changes or in-game tests performed. No movement architecture selected.
@@ -189,3 +193,7 @@ Observed: Activate sets relative weights and distinct REGIST_FUNC-bound callable
 No occurrence of any of the seven requested navigation candidates in the battle file. External pathing/coordinate documentation remains plausible but untested; no arbitrary world-space destination, live destination refresh or obstacle-routing guarantee established. Precise missing evidence and navigation matrix are in the analysis.
 
 Recommendation refined: fixed region via documented SetEventMoveTarget/POINT_EVENT and **observed ApproachTarget**, adapting main Activate/Act13, rather than introducing MoveToSomewhere first. No implementation decision or gameplay success claimed. Region ID, shared update/registration and compatible bytecode compilation/repack/ModEngine loading need verification. Proposal compares target, region, MoveToSomewhere and coordinate approaches; includes controlled success/failure criteria and rollback. Next session limited to fixed-destination implementation/testing after user authorization and prerequisite checks.
+
+## 2026-10-13 — Experiment002 evidence and limits
+
+Main Activate can bypass the original weighted selector by directly queuing the existing Act13 ApproachTarget call shape, with walk=true and guard9910. Main Interrupt must also be isolated: original branches enqueue attacks/retreats despite fallback false. Prepared only these two callback changes; other25 executable functions unchanged after existing Lua5.0 compilation. This establishes static isolation, not runtime harmlessness or activation recurrence. Returning false leaves shared/native reactions unverified. NPC mapping remains supplied Smithbox evidence; read-only SoulsFormats.DecryptERRegulation of workspace regulation.bin failed Unknown DCX format, no rows decoded. User-reported Experiment001 normal-behavior test does not prove custom script loading. Report and exact artifact hashes: agent/experiments/EXPERIMENT_002_OBSERVABLE_OVERRIDE.md. Repack and same-instance offline A/B/A pending; no new APIs or controller implementation.

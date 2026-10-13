@@ -1,12 +1,13 @@
 # Current state
 
-Updated 2026-10-13. Handoff004 analysis/documentation complete. No gameplay implementation/repack/test; M1 unachieved.
+Updated 2026-10-13. Experiment002 preparation complete; interactive repack and offline A/B/A pending. No milestone accepted.
 
-- User confirmed Smithbox instance c4311_9007, model c4311, entity 18000257, map m18_00_00_00, NpcParam/NpcThinkParam 43114006, logicId 10000, position (-102.524, 2.849, 157.056). Tutorial-boss identity unknown; approved prototype character unchanged.
-- Handoff004 reports battleGoalID431030 and successful tool setup/extraction/decompilation. Fully read TestingAI/decompiled/431030_battle.lua (1044 lines); confirmed binder manifest and symbolic registration. Param-row mapping remains user-reported.
-- Script uses weighted enemy-relative approach/circling/retreat/turn and attacks; interruptions replace queues. No requested coordinate/pathing candidate occurs in this battle text. Shared logic/common archives now exist but no readable counterparts supplied; no unpacking performed.
-- Detailed catalog/line references: docs/analysis/GODRICK_SOLDIER_AI.md. Source anomalies documented, not repaired. Check docs/api/INDEX.md before future API research; read relevant entries only.
-- First experiment proposal refined to documented SetEventMoveTarget/POINT_EVENT plus observed ApproachTarget, adapting main Activate/Act13. Fixed region distinct from enemy; no arbitrary-coordinate or obstacle-navigation claim. Shared431030 override affects other users of that goal.
-- Prerequisites: reachable region ID, identity, shared registration/update evidence, game build, compatible bytecode compilation/unchanged round-trip, actual ModEngine config/root and offline loading. No new tool installation or Steam access authorized/performed.
-- Git cleanup completed: tools/extracted/decompiled assets, map DCX and regulation binaries excluded and untracked from parent index; local files retained. Nested DSLuaDecompiler/SoulsFormats repositories untouched. Documentation/source/config tracking retained; no commit/push. User-controlled files unchanged.
-- Active handoffs: none; handoff004 marked completed, earlier handoffs historical/deferred. Await instruction to implement/test only the first fixed-destination experiment; no input/camera/combat development.
+- Read AGENTS/user documents, Experiment002 assignment, Experiment001 evidence and relevant AI analysis/API references. User documents and original assets preserved.
+- Experiment001 archive/compiler checks passed. User now reports normal spear-soldier behavior with compiled-source override installed; this does not prove custom Lua executed.
+- Selected Smithbox evidence: c4311_9007/model c4311/entity18000257, m18_00_00_00, NpcParam/NpcThinkParam43114006, logic10000/battle431030, position(-102.524,2.849,157.056). Mapping remains user-reported. Existing library failed read-only regulation parsing with Unknown DCX format. Tutorial-boss identity unknown.
+- Experiment002 disposable source replaces main Activate with queue clear and observed walk/guard ApproachTarget tuple; main Interrupt returns false without queuing attacks. Native/shared reactions and reactivation remain unverified.
+- Existing Lua5.0 compiler succeeded:46777 bytes, SHA2565DDE5015307C7844D98B2E5C27F84665A24B969221F36A82BDE41188E39AB660. Header/functioncount27 match; only executable function indices2/24 changed. Other25 match; LUAGNL/manifest identical and five references unchanged.
+- Ready binder: TestingAI/build/experiment002/approach-only/431030_battle-luabnd-dcx. Archive absent; inactive deployment/approach-only/script empty. Existing interactive Witchy workflow required. verify-and-stage.ps1 validates fresh extraction before workspace staging; negative baseline test rejected correctly.
+- Next: interactive repack, independent archive verification, then user-run offline anti-cheat-disabled A/B/A on same confirmed NPC. Actual ModEngine configuration absent; no external changes or game launch performed. No installations, commit or push.
+- Active handoff: agent/tempHandoffs/experiment002-continuation.md. Detailed report: agent/experiments/EXPERIMENT_002_OBSERVABLE_OVERRIDE.md. Experiment001 handoff superseded.
+- Mouse control, arbitrary-coordinate navigation and fixed-region work deferred. Check docs/api/INDEX.md before API research. Build/assets/tools ignored; original source, docs and configuration retained.

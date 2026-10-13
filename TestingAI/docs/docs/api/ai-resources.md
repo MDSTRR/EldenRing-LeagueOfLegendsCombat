@@ -1,5 +1,9 @@
 # NPC AI resource references
 
+Experiment002 update: selected NPC map/param chain remains user-supplied Smithbox evidence. A read-only attempt to decode workspace regulation.bin through existing SoulsFormats failed `Unknown DCX format`; no param values were independently read. See [report](../../agent/experiments/EXPERIMENT_002_OBSERVABLE_OVERRIDE.md). User-reported Experiment001 normal gameplay does not prove the supplied archive executed. Observable override compilation passed; repack/loading/A/B pending.
+
+Experiment001 verifies baseline Lua/LUAGNL payloads and metadata after repack; untouched source compilation/header/27-function structural comparisons pass. See [round-trip evidence](../../agent/experiments/EXPERIMENT_001_LUA_ROUNDTRIP.md). Compiled repack and actual game loading remain pending; engine-runtime compatibility not established. References intact.
+
 Updated 2026-10-13 through Handoff004. Status: battle text and manifest locally inspected; logic/common definitions not yet decoded. Installed game build unknown. See [index](INDEX.md), [research](../../agent/RESEARCH.md#handoff-004--decompiled-battle-analysis) and [manual extraction guide](../AI_EXTRACTION.md).
 
 ## NpcThinkParam.logicId
