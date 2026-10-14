@@ -1,0 +1,254 @@
+[
+  {
+    "FunctionIndex": 2,
+    "BytecodeSHA256": "4C45134218BA7917CDE8B4BBF664192539EFC9B05AE4C6A08EC3DBE9FB39388E",
+    "Executable": {
+      "Code": "BQAAAwCAAAQAAAEFWYABA8u+AAOFAAAFwQAABlkAAgPLvgADhQAABQEBAAZZAAIDy74AA4UAAAVBAQAGWQACAwtAAQNZAAEDS0ABAwECAAUBAgAGWQACA8vAAAOBAgAFWYABA0tBAQMFAwAFQQMABoUDAAfBAwAIhQAACQKAAAoBBAALWYAEAxuAAAA=",
+      "Constants": [
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "Init_Pseudo_Global",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "DeleteObserveSpecialEffectAttribute",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "TARGET_SELF",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 5025.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 5027.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 5030.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "ClearSubGoal",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "SetNumber",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "SetEventMoveTarget",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 67676767.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "AddSubGoal",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "GOAL_COMMON_ApproachTarget",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 10.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "POINT_EVENT",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 0.5,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 9910.0,
+          "Int": 0
+        }
+      ],
+      "Params": 3,
+      "Upvalues": 0,
+      "Vararg": 0,
+      "Stack": 12,
+      "Children": 0
+    }
+  },
+  {
+    "FunctionIndex": 22,
+    "BytecodeSHA256": "B47C1E9E2FC2DB798B18C8C6AC86F09E1AA5DAA880EFA983F3824F60883F833D",
+    "Executable": {
+      "Code": "iz4BA0EAAAWZgAED1b4BANQCgAALvwAExQAABpmAAQSXPwIAlAGAAMs/AQRZAAEEC0ABBEEAAAbBAQAHWQACBMEBAANVwAEAVAKAAItAAQRFAgAGwQEAB4UCAAhZgAIEC0ABBEEAAAbBAgAHWQACBJQDgACLQQEEmQABBNc+AgCUAoAA1b4BANQAgAALQAEEQQAABkEDAAdZAAIEi0ABBEUCAAbBAQAHhQIACFmAAgSFAwAEGwABBBuAAAA=",
+      "Constants": [
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "GetNumber",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "GetDist",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "POINT_EVENT",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 0.5,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "ClearSubGoal",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "SetNumber",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 1.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "AddSubGoal",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "GOAL_COMMON_Wait",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "TARGET_SELF",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 2.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "GetSubGoalNum",
+          "Number": 0.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeNumber",
+          "Bool": false,
+          "String": null,
+          "Number": 3.0,
+          "Int": 0
+        },
+        {
+          "Type": "TypeString",
+          "Bool": false,
+          "String": "GOAL_RESULT_Continue",
+          "Number": 0.0,
+          "Int": 0
+        }
+      ],
+      "Params": 3,
+      "Upvalues": 0,
+      "Vararg": 0,
+      "Stack": 9,
+      "Children": 0
+    }
+  }
+]

@@ -19,6 +19,12 @@ Do not transfer DS1's unused designation to current ER behavior without inspecti
 
 ## Point targets
 
+2026-10-13 user-reported runtime update: Experiment003 reaches the custom region through POINT_EVENT. The reported post-arrival wandering is now investigated in [Experiment003B](../../agent/experiments/EXPERIMENT_003B_ARRIVAL_WAIT.md). Earlier runtime-pending notes are historical for the tested fixed-region setup; dynamic destination replacement and the 003B waiting policy remain unverified.
+
+**VERIFIED FROM SOURCE:** POINT_EVENT=102 in [ER ai_define](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/ai_define.dec.lua#L50), line50, plus concrete ApproachTarget/GetDist call sites in white-ghost/030000 logic at the same EldenRingAI commit `3b3efb00219026dfba4663b9eb1a1afd94c0a68e`. `POINT_EVENT` is a target enum selection, not the region's EntityID or XYZ. [SetEventMoveTarget](ai-functions.md#seteventmovetarget) selects the region by EntityID; its separate map-local RegionID/internal index must not be passed in its place.
+
+**REASONABLE INFERENCE:** a native flag read by Lua could select another region while the game runs. **UNVERIFIED:** current-build lookup and navigation, goal-specific target support, storage aliasing with [SetEventPoint](event-ai-communication.md#seteventpoint), and active-path replacement. `TARGET_EVENT` remains a separate enum and must not be treated as an alias. The [saved-map check](../../agent/experiments/EXPERIMENT_003_SAVED_MAP_CHECK.md) records static region verification; the newer [prepared prototype report](../../agent/experiments/EXPERIMENT_003_PREPARED_PROTOTYPE.md) records the authorized compatibility hypothesis and build/staging checks, with runtime testing pending. See the [consolidated sequence and criteria](../analysis/NATIVE_LUA_NAVIGATION.md#recommended-experiment-sequence-and-criteria).
+
 | Exact name | Known role / evidence limit |
 |---|---|
 | POINT_INITIAL | Initial-position reference; ER enum member; goal compatibility untested |
@@ -31,6 +37,10 @@ Related setters: [SetEventMoveTarget](ai-functions.md#seteventmovetarget) and [S
 ## Direction
 
 `AI_DIR_TYPE_CENTER`: documented center/no-directional-offset selection. See the sourced [MoveToSomewhere example](ai-goals.md#usage-evidence). A center direction plus zero directional distance is the proposed fixed-region baseline; its behavior in the installed build still needs testing.
+
+## Goal result constants
+
+Exact definitions observed in [ER ai_define](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/ai_define.dec.lua), lines1–3: `GOAL_RESULT_Failed=-1`, `GOAL_RESULT_Continue=0`, `GOAL_RESULT_Success=1`. No parameters/signatures/defaults: these are callback result constants. [MoveToMultiPoint](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/move_to_point.dec.lua) uses success/continue in Goal.Update. They do not report a child goal's result by themselves; choosing Success in a custom callback without validated arrival would not prove movement completion. External source evidence only; no new result-return implementation or local test. Related: [GetSubGoalNum](ai-functions.md#getsubgoalnum), [GetDist](ai-functions.md#getdist).
 
 ## Usage and verification boundary
 

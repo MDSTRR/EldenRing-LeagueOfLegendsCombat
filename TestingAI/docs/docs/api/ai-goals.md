@@ -41,6 +41,8 @@ It demonstrates enemy destination, self facing and omitted trailing slots. Those
 
 ## GOAL_COMMON_MoveFollowPathSpecifyPos
 
+Experiment003 scanned529 public ER Lua files at revision3b3efb00219026dfba4663b9eb1a1afd94c0a68e: the only occurrence was the [goal constant definition](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/goal_list.dec.lua), value2024, not a call. This does not establish world-coordinate usage or absence in other builds. Region-based navigation is the recommended alternative; [report](../../agent/experiments/EXPERIMENT_003_FIXED_DESTINATION_RESEARCH.md).
+
 **Purpose:** explicit-position movement candidate inferred from its name and coordinate slots. The inspected typed reference supplies no behavioral explanation. Direct world-space navigation is not confirmed.
 
 | Index | Exact wiki parameter | ERAiAPI name | Type | Displayed default |
@@ -64,6 +66,8 @@ Both sources document coordinate slots. The wiki's NONE labels disagree with ERA
 **Unverified:** coordinate frame/units, fresh-path computation versus existing-route use, target influence, unused slots, walk behavior, stopping, failures, obstacles, interruption and dynamic coordinate updates. No local verification.
 
 ## Target-relative goals observed in 431030
+
+Experiment003 update: user reports Experiment002 offline A/B/A passed for enemy-target approach without melee, with attacks restored when disabled. New **POINT_EVENT movement target** evidence: [ER white-ghost AI](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/npc_whiteghost_battle.dec.lua), lines99–103, sets an event-region target then queues ApproachTarget toward POINT_EVENT. [030000 logic](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/030000_logic.dec.lua), line19, uses the same movement target. [ApproachTarget implementation](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/approach_target.dec.lua), lines7–24, forwards target/stop/walk/facing to MoveToSomewhere and handles guard. No new parameters/signature inferred. External ER source evidence; new soldier-region behavior untested. Earlier pending-Experiment002 behavior statements below are historical.
 
 Experiment002 uses the existing ApproachTarget entry on a disposable copy: `goal:AddSubGoal(GOAL_COMMON_ApproachTarget,10,TARGET_ENE_0,3,TARGET_SELF,true,9910)`. This supplies the same slots as Act13, forcing its observed walk variant. Main queue clearing and interrupt isolation are described in the [experiment report](../../agent/experiments/EXPERIMENT_002_OBSERVABLE_OVERRIDE.md). Lua5.0 compilation/header/static function isolation verified; archive repack, approach behavior, exact distance/guard/facing and repeated activation unverified. No omitted goal parameters or defaults inferred.
 
@@ -97,3 +101,11 @@ Purpose: animation/action execution relative to the specified target. Action ID 
 ## Navigation candidates — Handoff004 status
 
 No occurrence of MoveToSomewhere, MoveFollowPathSpecifyPos, SetEventMoveTarget, SetAIFixedMoveTarget, POINT_EVENT, POINT_AI_FIXED_POS or FollowPath in all1044 lines of the supplied battle text. This is absence in that file, not absence from the engine. Logic/common archives are supplied but unreadable counterparts are not yet provided. Previous coordinate/pathing claims remain external-documentation evidence only. Current first-test proposal uses region + observed ApproachTarget; [analysis](../analysis/GODRICK_SOLDIER_AI.md#recommended-first-experiment--fixed-region-using-the-observed-approach-goal) explains the refinement.
+
+## GOAL_COMMON_Wait
+
+Added 2026-10-13 for [Experiment003B](../../agent/experiments/EXPERIMENT_003B_ARRIVAL_WAIT.md). **VERIFIED FROM SOURCE:** `GOAL_COMMON_Wait=2000` at [ER goal_list.dec.lua:714](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/goal_list.dec.lua#L714). The [ERAiAPI goal reference](https://eladidu.github.io/readable-ds-lua/dd/dac/_goals_8hpp.html) documents one goal-specific parameter, `TARGET turnTarget`, displayed default TARGET_ENE_0, and turning-only waiting until life ends. This declaration is not a native function address.
+
+Observed ER usage: [030000_logic.dec.lua:16–19](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/030000_logic.dec.lua#L16-L19) queues a0.5-second Wait with TARGET_SELF near POINT_EVENT. Published Lua revision is `3b3efb00219026dfba4663b9eb1a1afd94c0a68e`, game build unspecified. Wait's native implementation is not present in the inspected Lua snapshot.
+
+003B queues `goal:AddSubGoal(GOAL_COMMON_Wait,1,TARGET_SELF)` after a distance-based arrival check and renews it on queue exhaustion while parent Update returns Continue. Goal ID and lifetime precede the facing target; no additional arguments or defaults are invented. **REASONABLE INFERENCE:** this supplies a renewable hold without explicitly facing/chasing the enemy. **UNVERIFIED:** stable positional waiting, animation/turn effects, parent preemption, safe reactivation and future command recognition in this NPC. Wait expiration alone is not parent arrival/success. Related: [completion/state helpers](ai-functions.md#battle-goal-completion-and-per-goal-state), [GetSubGoalNum](ai-functions.md#getsubgoalnum), [GetDist](ai-functions.md#getdist).

@@ -1,5 +1,7 @@
 # Experiment 002 — preparation and verification report
 
+Latest user report2026-10-13: Experiment002 passed offline A/B/A; the selected spear soldier approached without initiating melee and disabling the override restored attacks. Accepted as user-reported behavioral evidence; below records the prior preparation session. Region/coordinate navigation is still untested and is the subject of Experiment003.
+
 2026-10-13. **Prepared and compiled; interactive repack and in-game A/B results pending. Success criterion not achieved.** The user-provided assignment `EXPERIMENT_002.md` is preserved.
 
 ## Prior evidence and NPC selection

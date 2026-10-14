@@ -37,13 +37,48 @@ Evidence date: 2026-10-13. Source: [ERAiAPI AiFunc](https://eladidu.github.io/re
 
 ## SetEventMoveTarget
 
-Documented declaration: `void SetEventMoveTarget(unsigned int regionId)`.
+2026-10-13 runtime update: the user now reports Experiment003 verified in-game for the saved region, with post-arrival wandering/return. This is **user-reported runtime verification of the tested fixed-region setup**, not proof of arbitrary XYZ, dynamic replacement or a native bridge. [Experiment003B](../../agent/experiments/EXPERIMENT_003B_ARRIVAL_WAIT.md) investigates completion/idle control. Earlier pending-runtime statements below are historical for that fixed-region setup; the new 003B behavior remains untested.
 
-- Parameter: `regionId`, the region assigned to POINT_EVENT. No default shown.
-- Purpose: assign the event movement point to a map region.
-- Source example: `ai:SetEventMoveTarget(RegionEntityID)` appears in the [DS1 common function repository](https://www.soulsmodding.com/doku.php?id=common-refmat:lua_ai_common_function_repository). `RegionEntityID` denotes a real map region ID to supply, not a predefined engine constant.
-- Related: [POINT_EVENT](ai-targets.md#point-targets), [MoveToSomewhere](ai-goals.md#goal_common_movetosomewhere).
-- Status: setup behavior documented for ER; Lua example has DS1 provenance. Region reachability, soldier movement and runtime updates untested. This setter alone does not command movement.
+Experiment003 prepared usage: `ai:SetEventMoveTarget(67676767)` followed by ApproachTarget using POINT_EVENT. Confirmed in compiled callback disassembly; region9063/entity67676767 saved map checked. Compilation/static checks establish call construction, not runtime lookup. User authorized testing Other/Point compatibility as a hypothesis. [Prototype report](../../agent/experiments/EXPERIMENT_003_PREPARED_PROTOTYPE.md).
+
+Documented Lua-facing declaration: `void SetEventMoveTarget(unsigned int regionId)`, generated `AiFunc.hpp:2635` in readable-ds-lua gh-pages commit `4c78203276c9dd5dbaf8b6d769a30d807cd41233` ([header source view](https://eladidu.github.io/readable-ds-lua/d3/d42/_ai_func_8hpp_source.html)). This declaration is reference documentation, not a resolved native function address or DLL ABI.
+
+- Parameter: a real map region's **EntityID**, assigned to `POINT_EVENT`; no default shown. It is distinct from RegionID, list index, NPC EntityID and ThinkParam ID. [MSBE region fields](https://github.com/soulsmods/SoulsFormatsNEXT/blob/master/SoulsFormats/Formats/MSB/MSBE/PointParam.cs) distinguish the serialized identifiers.
+- Purpose: select a region destination reference. This setter alone does not queue movement and accepts no raw X/Y/Z.
+- **VERIFIED FROM SOURCE:** [ER white-ghost source](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/npc_whiteghost_battle.dec.lua#L96-L103), `GOAL_NPC_WhiteGhost_Battle_Act03:96–103`, uses `arg0:SetEventMoveTarget(f5_local0)` before an ApproachTarget goal targets `POINT_EVENT`. [MoveToMultiPoint source](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/move_to_point.dec.lua#L33-L41), lines33–41, sets the region, measures distance and queues a point goal. Both use EldenRingAI commit `3b3efb00219026dfba4663b9eb1a1afd94c0a68e`, with unspecified game-build provenance. The suspicious white-ghost constant/distance branch is not endorsed as correct arrival logic.
+- **REASONABLE INFERENCE:** Lua could select between validated regions after receiving a native event flag. The combined bridge is a proposed architecture, not a tested invocation.
+- **UNVERIFIED:** current-build region lookup/subtype availability, soldier navigation/reachability, setter storage layout/native address, cached-path response and immediate mid-movement retargeting. Static map/compiler checks do not resolve this boundary.
+- Related: [POINT_EVENT](ai-targets.md#point-targets), [MoveToSomewhere](ai-goals.md#goal_common_movetosomewhere), [IsEventFlag](event-ai-communication.md#iseventflag), [SetEventPoint](event-ai-communication.md#seteventpoint), and the [recommended experiment sequence](../analysis/NATIVE_LUA_NAVIGATION.md#recommended-experiment-sequence-and-criteria).
+
+Earlier DS1 example remains provenance-specific: [common function repository](https://www.soulsmodding.com/doku.php?id=common-refmat:lua_ai_common_function_repository). Current project records: [Experiment003 research](../../agent/experiments/EXPERIMENT_003_FIXED_DESTINATION_RESEARCH.md), [saved-map check](../../agent/experiments/EXPERIMENT_003_SAVED_MAP_CHECK.md), and the newer [prepared prototype report](../../agent/experiments/EXPERIMENT_003_PREPARED_PROTOTYPE.md). Those experiment files are linked, not modified by this consolidation.
+
+## GetDist
+
+Documented declaration: `float GetDist(TARGET target)` in [ERAiAPI AiFunc](https://eladidu.github.io/readable-ds-lua/d1/d81/class_ai_func.html). One target enum parameter, no default. Returns capsule-adjusted target distance; not an exact XYZ coordinate measurement. [ER030000 logic](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/030000_logic.dec.lua), lines16–19, checks `arg0:GetDist(POINT_EVENT) <= 0.3` before an event-point approach. TARGET_ENE_0 usage is also present throughout supplied431030 source. POINT_EVENT support observed externally; local region validity/distance semantics untested. Related: SetEventMoveTarget, ApproachTarget, GetSubGoalNum. Missing-target behavior is not established; zero distance cannot certify region existence.
+
+## GetSubGoalNum
+
+Documented declaration: `int GetSubGoalNum()`; no parameters/defaults. [ERAiAPI GoalFunc](https://eladidu.github.io/readable-ds-lua/d4/d58/class_goal_func.html) identifies subgoal queue count. [ER MoveToMultiPoint](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/move_to_point.dec.lua), line47, uses `arg2:GetSubGoalNum() <= 0` with an additional distance check and GOAL_RESULT constants. Queue exhaustion alone does not prove arrival/success; could reflect failure/cancellation/lifetime. Source's ambiguous numeric target usage is not adopted. Documented/external usage only, no local runtime verification. Related: GetDist and [result constants](ai-targets.md#goal-result-constants).
+
+## Battle-goal completion and per-goal state
+
+Added 2026-10-13 for [Experiment003B arrival/wait control](../../agent/experiments/EXPERIMENT_003B_ARRIVAL_WAIT.md). Distinguish source evidence from the user's successful fixed-region test and the still-pending 003B test.
+
+| Function | Known signature / call shape | Source-backed behavior and limits |
+|---|---|---|
+| Update_Default_NoSubGoal | Published Lua `Update_Default_NoSubGoal(arg0,arg1,arg2)`; third argument is the goal in the caller | **VERIFIED FROM SOURCE:** empty subgoal queue returns GOAL_RESULT_Success; otherwise Continue. No distinction between arrival, timeout or failure. [ER common_func_plan.dec.lua:1261–1267](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/common_func_plan.dec.lua#L1261-L1267). Experiment003 main Update delegates here. |
+| GuardGoalSubFunc_Update | Published Lua `(ai,goal,guardId,onGuardResult,lifeSuccess)` positional interpretation from ApproachTarget caller | **VERIFIED FROM SOURCE:** handles goal-number guard results and goal life <=0, otherwise Continue. [Common helper:1276–1292](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/common_func_plan.dec.lua#L1276-L1292), [ApproachTarget caller:27–32](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/approach_target.dec.lua#L27-L32). Lifetime completion is not arrival. Argument names are interpretation, not original decompiled names/defaults. |
+| GoalFunc.GetNumber / SetNumber | `float GetNumber(int index)` / `void SetNumber(int index,float value)` | [GoalFunc reference](https://eladidu.github.io/readable-ds-lua/d4/d58/class_goal_func.html) documents goal-local slots0–7, distinct from AI-wide numeric state. Published guard helpers read/write child-goal slots0/1. 003B reserves parent slot0 for its state; current-game behavior of that new policy is **UNVERIFIED**. |
+
+All published ER examples above use commit `3b3efb00219026dfba4663b9eb1a1afd94c0a68e`, with unspecified game-build provenance. **REASONABLE INFERENCE:** keeping the parent Update at Continue and replenishing short Wait subgoals may avoid handing control back on queue exhaustion while leaving Update available to future commands. Native/state-change preemption and actual future command reception remain **UNVERIFIED**. No AI-wide disable, faction change, or command receiver is added by 003B. See [Wait](ai-goals.md#goal_common_wait).
+
+## MoveToEventPoint
+
+Documented declaration: `bool MoveToEventPoint(unsigned int regionId, int p2, float p3, bool isWalk)` in [ERAiAPI AiFunc](https://eladidu.github.io/readable-ds-lua/d1/d81/class_ai_func.html). Region identifier, two parameters described as unused, walk selection; no defaults inferred. Reference describes pathing to event region and returning whether the region exists, not proof of arrival. No concrete Lua usage validated here; no prototype call supplied. Region-based ApproachTarget has better existing project evidence. Status: documented native declaration only, build unspecified; Lua integration/local behavior unverified. Related: SetEventMoveTarget and POINT_EVENT.
+
+## SetAIFixedMoveTargetSpecifyAngle
+
+Documented declaration: `void SetAIFixedMoveTargetSpecifyAngle(TARGET targetOrigin, float angle, float lineLength, AI_SPA_DIR_TYPE spatialDirectionStart)` in [ERAiAPI AiFunc](https://eladidu.github.io/readable-ds-lua/d1/d81/class_ai_func.html). Sets POINT_AI_FIXED_POS to a target-relative line endpoint; no defaults. [ER common_logic_func](https://github.com/zoloypzuo/EldenRingAI/blob/3b3efb00219026dfba4663b9eb1a1afd94c0a68e/aicommon/common_logic_func.dec.lua), lines43–44, supplies `(TARGET_SELF,180,3,AI_SPA_DIR_TYPE_TargetF)` before ApproachTarget toward POINT_AI_FIXED_POS. This is not an absolute XYZ setter; precise angle/frame semantics and local behavior unverified. Related: SetAIFixedMoveTarget and [fixed point target](ai-targets.md#point-targets). Experiment003 chooses a region rather than adding this dependency.
 
 ## SetAIFixedMoveTarget
 

@@ -1,0 +1,18 @@
+{
+  "Passed": true,
+  "Cases": 6,
+  "VM": "Existing Lua5.0.2 toolchain runtime",
+  "ActualChangedCallbacksExecuted": true,
+  "EngineAPIsMocked": true,
+  "InGameTested": false,
+  "CasesCovered": [
+    "baseline approach preserved",
+    "moving remains active",
+    "arrival clears movement and waits",
+    "wait renewal",
+    "incomplete approach holds without false arrival",
+    "waiting does not auto-reapproach"
+  ],
+  "SourceSHA256": "E63DB0CCE475C399AC61EC97BDF08B1214E9D2FCD4C57FB47B98BE0AB99C51B5",
+  "TestSourceSHA256": "3E94686F4580FC3F90B5B3E91324867252413E232B48466DDE1BF26C5AA37806"
+}
